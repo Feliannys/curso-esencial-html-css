@@ -309,10 +309,7 @@ hr {
 }
 
 @media screen and (min-width: 1366px) {
-    body{
-        background: gold;
-    }
-
+   
     .hero {
         block-size: 350px;
     }
