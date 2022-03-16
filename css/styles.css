@@ -29,83 +29,187 @@
 /* La pseudo clase root es el elemento mas superior en el html  */
 :root {
     font-size: 18px;
-    --gray30: #212121;
-    --gray20: #212429;
-    --gray15: #424242;
-    --gray10: #616161;
+    --white30: white;
+    --white20: #A5A3A5;
+    --white10: #3A3539;
 }
 
+
 body {
-    color: var(--gray30);
-    font-family: 'Roboto', sans-serif;
+    color: var(--white30);
+    font-family: 'Nunito', sans-serif;
+    background: #251F24;
     margin: 0;
 
     /* font-family: "charter"; Asi se agregan fuentes personalizadas */
 }
 
 a {
-    color: var(--gray30);
+    color: var(--white30);
 }
 
+/*.header {
+     position: sticky;
+    inset-block-start: -45px; <--- estas dos fueron pasadas al media query 
+}*/
+
+ .header-content{
+    padding-inline: 20px;
+    /* position: relative;
+    inset-block-start: 65px; <--- estas dos fueron pasadas al media query */
+} 
+
 header{
+    margin-block-start: 20px;
     font-size: 14px;
-    color: var(--gray10);  
+    color: var(--white30);  
+    /* position: absolute;
+    inset-block-start: 0; <--- estas dos fueron pasadas al media query*/
+    /* inset block start es el top */
+    /* inset-inline-start: -208px;
+    inline-size: 188px; <--- estas dos fueron pasadas al media query*/
+    /* top left botton right z-inex <--- se activan estos elementos al poner relative*/
+    /* position: absolute;
+    top: 0;
+    left: -232px;
+    width: 188px;
+    top: 70px; */
+    /* background: rebeccapurple; */
+}
+
+header li {
+    color: var(--white20);
+    margin-block-end: 16px;
 }
 
 header a {
-    color: var(--gray10);  
+    color: var(--white20);  
     text-decoration: none;  
 }
 
 header a:hover{
-    color: var(--gray30);
+    color: var(--white30);
 }
 
 nav details summary {
     font-weight: bold;
 }
 
-h1 {
-    font-size: 60px;
-    /* font-size: 3,75em; Equivale a los 60px pasados a em. Se divide 60/16 ya que el HTML viene por defecto con 16px y es el elemento padre del h1. Igual abajo -manito señalando hacia abajo- */ 
-    margin: 64px 0 16px;
-} 
-
-h1 ~ p {
-    background: #FEC62E;
-    margin-bottom: 64px;
+h1, h2, h3 {
+    font-weight: normal;
 }
 
+h1 {
+    font-size: 40px;
+    font-weight: 600;
+    /* font-size: 3,75em; Equivale a los 60px pasados a em. Se divide 60/16 ya que el HTML viene por defecto con 16px y es el elemento padre del h1. Igual abajo -manito señalando hacia abajo- */ 
+    /* margin: 64px 0 16px; */
+    margin-block-start: 20px;
+    margin-block-end: 16px;
+} 
+
+/* h1 + p {
+    background: #FEC62E;
+    margin-bottom: 64px;
+    COLAPSO DE MARGENES*** Los margenes no se suman, se unen. El hr que esta debajo de este p tenia el mismo margen hacia arriba, que este hacia abajo, por lo tanto colisionan. Se elimina y queda igual.
+}   El colapso de margenes solo aplica con elementos tipo bloque y en forma vertical*/
+
 hr {
-    margin: 64px 0;
+    /* margin: 64px 0; */
+    margin-block: 40px ;
+    border: 1px solid rgba(97, 97, 97, 0.2);;
 }
 
 h2{
-    font-size: 2em;
-    margin: 64px 0 40px;
-    font-weight: normal;
+    font-size: 1,3em;
+    /* margin: 64px 0 40px;*/
+    margin-block: 40px;
+    font-weight: 600;
 }
 
 h3 {
-    font-size: 1,5em;
-    margin: 16px 0 24px;
-    font-weight: normal;
+    font-size: 1em;
+    /* margin: 16px 0 24px; */
+    margin-block: 16px;
 }
 
 pre {
-    background: #FEC62E;
+    background: var(--white10);
+    font-family: 'Nunito';
+    line-height: 24px;
+    padding-block: 40px;
+    padding-inline: 40px;
+    overflow: auto;
+    border-radius: 8px;
+    border: 8px solid #5551FF;
+    box-shadow: -10px 10px 0 0 #ABAAF6;
+    margin-block-end: 30px;
 }
 
 blockquote {
-    margin: 32px 0;
+    margin-block-start: 80px;
+    margin-block-end: 63px;
+    font-size: 24px;
+    background: var(--white10);
+    border-radius: 8px;
+    padding-inline: 24px;
+    padding-block: 24px;
+    line-height: 32px;
+} 
+
+blockquote p {
+    color: var(--white30);
+}
+
+blockquote span {
+    color: var(--white30);
+}
+
+blockquote span::before{
+    content: '-';
+}
+
+/* .header{
+    position: sticky;
+    top: 0;
+}
+
+.header-content{
+    position: relative;
+} */
+
+/* .main {
+    border: 1px solid yellow; 
+} */
+
+.wrapper {
+    /* border: 1px solid red; */
+    max-inline-size: 902px;
+    /* inline-size es lo que diriamos el width */
+    margin: auto;
+}
+
+.main-content {
+    /* border: 1px solid green; */
+    padding-inline: 16px;
+}
+
+p {
+    color: var(--white20);
 }
 
 .hero {
-    background-image: linear-gradient(to top, rgba(255, 255, 255, .3), transparent), url('../img/patron.png');
-    height: 350px;
+    background-image: linear-gradient(96.07deg, #314755 30.63%, #26A0DA 102.18%);
+    block-size: 50px;
 }
 
-.section-content{
+.section-content img {
+    margin-block-start: 40px;
+    display: block;
+    max-inline-size: 100%;
+}
+
+/* .section-content{
     margin-top: 164px;
 }
 
@@ -124,7 +228,7 @@ blockquote {
 
 .section-content + hr {
     display: none;
-}
+} */
 
 .section-content {
     counter-reset: titleList;
@@ -132,20 +236,115 @@ blockquote {
 
 .section-content h3 {
     counter-increment: titleList;
+    /* padding-bottom: 8px;
+    position: relative;
+    background: red; */
 }
 
 .section-content h3::before {
-    content: counter(titleList);
+    content: counter(titleList, decimal)'. ';
 }
 
-.section-content h3::after {
-    content: '';
-    width: 32px;
-    height: 4px;
-    background: var(--gray30);
+hr {
+    display: none;
+}
+
+/* .slider {
+    border: 1px solid red; 
+ } */
+
+ .slider-container{
+    /* block-size: 100px; <-- esto era el heigth*/
+    display: block;
+    overflow: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    font-size: 0;
+    /* border: 1px solid gold; */
+ }
+
+ .video{
+    margin: 0;
     display: inline-block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    /* border: 1px solid turquoise; */
+ }
+
+ .slider-bullet-list{
+    text-align: center;
+    margin-block-start: 10px;
+ }
+
+ .slider-bullet {
+     display: inline-block;
+     inline-size: 15px;
+     block-size: 15px;
+     border-radius: 50%;
+     background: white;
+ }
+
+.form input {
+    inline-size: 100%;
+    border: 1px solid var(--white30);
+    box-sizing: border-box;
+    background: #251F24;
+    border-radius: 8px;
+    padding-inline: 16px;
+    padding-block: 12px;
+    color: var(--white30);
+    font-size: 16px;
+    display: block;
+    margin-block-end: 24px;
 }
 
-.section-content img {
-    margin-top: 40px;
+.form input[type="submit"]{
+    background: #157EFB;
+    border: none;
+}
+
+.form ::-webkit-input-placeholder{
+    color: var(--white20);
+}
+
+@media screen and (min-width: 1366px) {
+    body{
+        background: gold;
+    }
+
+    .hero {
+        block-size: 350px;
+    }
+
+    .header {
+        position: sticky;
+        inset-block-start: -45px;
+    }
+    .header-content{
+        position: relative;
+        inset-block-start: 65px;
+        padding-inline: 0;
+    }
+    
+    header{ 
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: -208px;
+        inline-size: 188px;
+    }
+
+    h1{
+        font-size: 60px;
+        margin-block-start: 64px;
+
+    }
+
+    h2{
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1,5em;
+    }
 }
